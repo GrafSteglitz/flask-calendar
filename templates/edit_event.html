@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block nav_content %}
+{% include "nav.html" %}
+
+{% endblock %}
+
+{% block main_content %}
+<h2>View/Edit Event</h2>
+<table>
+    <form action="{{ url_for('update_event')}}" method="POST" novalidate>
+        <tr>{{ form.hidden_tag()}}
+            <td>{{ form.name.label()}}</td>
+            <td>{{ form.name()}}
+                {% for error in form.name.errors %}
+                {{error}}
+                {% endfor %}</td>
+        </tr>
+        <tr>
+            <td>{{ form.description.label()}}</td>
+            <td>{{ form.description()}}</td>
+            
+        </tr>
+        <tr>
+            <td>{{ form.start_date.label()}}</td>
+            <td>{{ form.start_date()}}</td>
+            
+        </tr>
+        <tr>
+            <td>{{ form.end_date.label()}}</td>
+            <td>{{ form.end_date()}}</td>
+            
+        </tr>
+        <tr>
+            <td>{{ form.start_time.label()}}</td>
+            <td>{{ form.start_time()}}</td>
+        </tr>
+        <tr>
+            <td>{{ form.end_time.label()}}</td>
+            <td>{{ form.end_time()}}</td>
+            
+        </tr>
+        <tr>
+            <td>{{ form.location.label()}}</td>
+            <td>{{ form.location()}}</td>
+            
+        </tr>
+        <tr>
+            <td>{{ form.participants.label()}}</td>
+            <td>{{ form.participants()}}</td>
+            
+        </tr>
+        <tr>
+            <td>
+            {{form.submit()}}</td>
+            <td></td>
+        </tr>
+
+    </form>
+</table>
+<p>{{message}}</p>
+<p>
+    {% if errors and errors.values() %}
+    {% for err in errors.values() %}
+    {{ err[0] }}
+    {% endfor %}
+    {% endif %}
+</p>
+<p><a href="{{url_for('calendar')}}">Back to Calendar</a></p>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block main_content %}
+
+<h1> Welcome to the Calendar App</h1>
+<p>
+    <a href="{{url_for('calendar')}}">Calendar</a>
+</p>
+<p>
+    <a href="{{url_for('show_events')}}">Show Events</a>
+</p>
+<p>
+    <a href="{{url_for('create_event')}}">Create Event</a>
+</p>
+<p>
+    <a href="{{url_for('logout')}}">Logout</a>
+</p>
+
+{% endblock %}

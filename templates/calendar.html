@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block nav_content %}
+{% include "nav.html" %}
+
+{% endblock %}
+
+{% block main_content %}
+
+<form action="{{url_for('form_handler')}}" method="post" novalidate>
+    {{form.hidden_tag()}}
+    {% for subfield in form.view_select %}
+    
+        {{ subfield() }}
+        {{ subfield.label() }}
+        
+    {% endfor %}
+    
+    <br />
+    {{ form.date_select.label() }}
+    {{ form.date_select() }}
+    {{ form.submit() }}
+    <input type="submit" value="Go to today" formaction="{{url_for('today')}}"/>
+    <br />
+    <label for="interval">Interval:</label>
+    <select id="interval" name="interval">
+      {{ dropdown_html | safe }}
+    </select> 
+    
+
+    <input type="hidden" name = "current_date" value="{{range_start}}" />
+    <input type="submit" value=" - " formaction="{{url_for('remove_week_month')}}"/>
+    <label>Back/Forward</label>
+    <input type="submit" formaction="{{url_for('add_week_month')}}" value="+"/>
+</form>
+<h3>{{date_header}}</h3>
+<div class="calendar">{{ html | safe }}</div>
+
+{% endblock %}

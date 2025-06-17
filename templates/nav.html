@@ -1,0 +1,11 @@
+<div>
+    <nav>
+        {% for key in nav.keys() %}
+        {% if key==request.path %}
+        <a class = "faded" href="{{key}}">{{nav[key]}}</a>
+        {% else %}
+        <a href="{{ url_for(key) }}">{{nav[key]}}</a>
+        {% endif %}
+        {% endfor %}
+    </nav>
+</div>

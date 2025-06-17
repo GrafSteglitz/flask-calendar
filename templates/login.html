@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block main_content %}
+<h2>Login Required</h2>
+<p>You must login to use the calendar app.</p>
+<p>If you do not already have an account, please register using the link below:</p>
+<p><a href="{{ url_for('register')}}">User Registration</a></p>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    {{form.user_id.label }}
+    {{form.user_id()}}
+    {% for error in form.user_id.errors %}
+        {{ error }}
+    {% endfor %}
+    <br />
+    {{ form.password.label }}
+    {{ form.password() }}
+    {% for error in form.password.errors %}
+        {{ error }}
+    {% endfor %}
+    <br />
+    {{ form.submit() }}
+
+</form>
+
+{% endblock %}
