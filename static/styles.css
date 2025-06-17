@@ -1,0 +1,73 @@
+body {
+    font-family: "Nunito Sans", serif;
+  font-optical-sizing: auto;
+}
+
+div.calendar{
+    display: flex;
+    flex-direction: column;
+}
+table.calendar{
+    /* height: 90%; */
+    flex-grow: 1;
+}
+#calendar th, td {
+    
+    width: calc(100vw/7);
+    
+}
+table, th, td{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+
+}
+nav a{
+    /* display: inline; */
+    color: black;
+    margin: 5px;
+    /* background-color: black; */
+}
+
+.faded{
+    color: grey;
+}
+th {
+    background-color: aqua;
+    /* color: white; */
+}
+.event{
+    background-color: aquamarine;
+    display: inline;
+}
+td > div{
+    margin: 0;
+    display: block;
+}
+
+/* Code below based on https://stackoverflow.com/questions/34459841/show-child-element-on-parent-hover-in-css */
+
+form.edit{
+    display: inline;
+}
+/* td:hover form.edit{
+    display: inline;
+} */
+th.weekend{
+    background-color: rgba(3, 165, 252,0.5);
+}
+
+input {
+    border-radius: 15px;
+    font-family: "Nunito Sans", serif;
+  font-optical-sizing: auto;
+}
+input[type=button]{
+    font-weight: bolder;
+}
+.title{
+    font-weight: bold;
+}
